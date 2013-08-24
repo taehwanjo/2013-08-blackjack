@@ -15,11 +15,10 @@ class window.AppView extends Backbone.View
   initialize: ->
     @render()
     #@model.on('gameResult', @render)
-    @model.on('newButton', @newButton) # does not work but executes at beginning
-    @model.on('restart', @render)
+    @model.on('newButton', @newButton, @) # does not work but executes at beginning
+    @model.on('restart', @render, @)
     #@model.on('stand', console.log('test2')) # does not work but executes at beginning
   newButton: ->
-    console.log("NEW BUTTON ADD")
     @$el.find('.top-buttons').html '<button class="new-hand">New Hand</button>'
 
   render: ->
